@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './assets/img/pizza-logo.svg';
+import logo from '../assets/img/pizza-logo.svg';
 
-import Button from './Button'
+import Button from './Button';
 
 export default function Header() {
   return (
@@ -15,7 +15,7 @@ export default function Header() {
           </div>
         </div>
         <div className="header__cart">
-          <Button price={560} />
+          <Button className="button--cart" price={560} onClick={() => alert(123)} />
           {/* <a href="/cart.html" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>

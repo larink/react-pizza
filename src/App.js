@@ -1,22 +1,19 @@
-import Header from './Header';
+import React, { useState } from 'react';
+import { Header, Categories } from './components';
 
 function App() {
+  // const [state, setState] = useState('');
+
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <div className="categories">
-              <ul>
-                <li className="active">Все</li>
-                <li>Мясные</li>
-                <li>Вегетарианская</li>
-                <li>Гриль</li>
-                <li>Острые</li>
-                <li>Закрытые</li>
-              </ul>
-            </div>
+            <Categories
+              onClickItem={(item) => console.log(item)}
+              items={['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']}
+            />
             <div className="sort">
               <div className="sort__label">
                 <svg
