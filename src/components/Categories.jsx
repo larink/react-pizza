@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Categories({ items, onClickItem }) {
+export default function Categories({ items }) {
   const [acitveItem, setAcitveItem] = useState(null);
 
   const onSelectItem = (index) => {
@@ -10,17 +10,18 @@ export default function Categories({ items, onClickItem }) {
   return (
     <div className="categories">
       <ul>
-        <li className={acitveItem === null ? 'active' : ''} onClick={() => setAcitveItem(null)}>
+        <li className={acitveItem === null ? 'active' : ''} onClick={() => onSelectItem(null)}>
           Все
         </li>
-        {items.map((item, index) => (
-          <li
-            className={acitveItem === index ? 'active' : ''}
-            onClick={() => setAcitveItem(index)}
-            key={`${item}_${index}`}>
-            {item}
-          </li>
-        ))}
+        {items &&
+          items.map((item, index) => (
+            <li
+              className={acitveItem === index ? 'active' : ''}
+              onClick={() => setAcitveItem(index)}
+              key={`${item}_${index}`}>
+              {item}
+            </li>
+          ))}
       </ul>
     </div>
   );

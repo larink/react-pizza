@@ -2,14 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default function Button(props) {
-  const { price, outline, onClick, className } = props;
+  const { price, outline, className } = props;
   return (
     <button
       href="/cart.html"
       className={classNames('button', className, {
         'button--outline': outline,
-      })}
-      onClick={onClick}>
+      })}>
       <span>{price}</span>
       <div className="button__delimiter"></div>
       <svg
