@@ -1,36 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createStore } from "redux";
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 import "./scss/app.scss";
 
 import App from "./App";
 
-function counterReducer(state = { value: 0 }, action) {
-  switch (action.type) {
-    case 'counter/incremented':
-      return { value: state.value + 1 }
-    case 'counter/decremented':
-      return { value: state.value - 1 }
-    default:
-      return state
-  }
-}
-
-const store = createStore(counterReducer)
-
-store.subscribe(() => console.log(store.getState()))
-
-console.log(store.getState())
-
-store.dispatch({ type: 'counter/incremented' })
-store.dispatch({ type: 'counter/incremented' })
-
 ReactDOM.render(
   // <React.StrictMode>
   <Router>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   /* </React.StrictMode>, */ document.getElementById("root")
 );

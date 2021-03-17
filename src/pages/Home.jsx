@@ -1,5 +1,5 @@
-import React from 'react';
-import { Categories, SortPopup, PizzaBlock } from '../components';
+import React from "react";
+import { Categories, SortPopup, PizzaBlock } from "../components";
 
 export default function Home({ items }) {
   return (
@@ -7,9 +7,16 @@ export default function Home({ items }) {
       <div className="content__top">
         <Categories
           onClickItem={(item) => console.log(item)}
-          items={['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']}
+          items={["Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"]}
         />
-        <SortPopup onClickItem={() => {}} items={['популярности', 'цене', 'алфавиту']} />
+        <SortPopup
+          onClickItem={() => {}}
+          items={[
+            { name: "популярности", type: "popular" },
+            { name: "цене", type: "price" },
+            { name: "алфавиту", type: "aplhabet" },
+          ]}
+        />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
